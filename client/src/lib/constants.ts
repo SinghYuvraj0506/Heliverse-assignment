@@ -18,3 +18,5 @@ export const AvailableDomains = [
   "Finance",
   "Marketing",
 ];
+
+export const HOST_URL = "https://heliverse-assignment-7ppk.vercel.app"

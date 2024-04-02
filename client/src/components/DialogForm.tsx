@@ -16,7 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { AvailableDomains, AvailableGenders } from "@/lib/constants";
+import { AvailableDomains, AvailableGenders, HOST_URL } from "@/lib/constants";
 import {
   createUser,
   updateUser,
@@ -268,7 +268,7 @@ const TeamForm = () => {
 
   const handleInput = async (e) => {
     const response = await fetch(
-      `${import.meta.env.HOST_URL}/api/users?search=` + e.target.value
+      `${HOST_URL}/api/users?search=` + e.target.value
     );
     const result = await response.json();
 

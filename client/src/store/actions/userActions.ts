@@ -1,3 +1,4 @@
+import { HOST_URL } from "@/lib/constants";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 interface queryData {
@@ -13,7 +14,7 @@ export const fetchUsers = createAsyncThunk(
   async (data: queryData, { rejectWithValue }) => {
     try {
       const response = await fetch(
-        `${import.meta.env.HOST_URL}/api/users?page=${data?.page ?? 1}&search=${data?.search ?? ""}&gender=${data?.gender ?? ""}&available=${data?.available ?? ""}&domain=${data?.domain ?? ""}`
+        `${HOST_URL}/api/users?page=${data?.page ?? 1}&search=${data?.search ?? ""}&gender=${data?.gender ?? ""}&available=${data?.available ?? ""}&domain=${data?.domain ?? ""}`
       );
       const result = await response.json();
 
@@ -34,7 +35,7 @@ export const getUserData = createAsyncThunk(
   async (data: string, { rejectWithValue }) => {
     try {
       const response = await fetch(
-        `${import.meta.env.HOST_URL}/api/users/${data}`
+        `${HOST_URL}/api/users/${data}`
       );
       const result = await response.json();
 
@@ -56,7 +57,7 @@ export const createUser = createAsyncThunk(
     try {
 
       const response = await fetch(
-        `${import.meta.env.HOST_URL}/api/users`,
+        `${HOST_URL}/api/users`,
         {
           method:"POST",
           headers:{
@@ -86,7 +87,7 @@ export const updateUser = createAsyncThunk(
     try {
 
       const response = await fetch(
-        `${import.meta.env.HOST_URL}/api/users/${data?.id}`,
+        `${HOST_URL}/api/users/${data?.id}`,
         {
           method:"PUT",
           headers:{
@@ -116,7 +117,7 @@ export const deleteUser = createAsyncThunk(
     try {
 
       const response = await fetch(
-        `${import.meta.env.HOST_URL}/api/users/${data}`,
+        `${HOST_URL}/api/users/${data}`,
         {
           method:"DELETE",
           headers:{
