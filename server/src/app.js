@@ -14,7 +14,7 @@ app.use(cors(({
 app.use(express.json({limit:"16kb"}))
 app.use(express.urlencoded({extended:true,limit:"16kb"}))
 
-app.get("/healthcheck",(_,res)=>{
+app.get("/",(_,res)=>{
     return res.send("Hello from server")
 })
 
