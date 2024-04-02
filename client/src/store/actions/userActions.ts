@@ -13,7 +13,7 @@ export const fetchUsers = createAsyncThunk(
   async (data: queryData, { rejectWithValue }) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/users?page=${data?.page ?? 1}&search=${data?.search ?? ""}&gender=${data?.gender ?? ""}&available=${data?.available ?? ""}&domain=${data?.domain ?? ""}`
+        `${import.meta.env.HOST_URL}/api/users?page=${data?.page ?? 1}&search=${data?.search ?? ""}&gender=${data?.gender ?? ""}&available=${data?.available ?? ""}&domain=${data?.domain ?? ""}`
       );
       const result = await response.json();
 
@@ -34,7 +34,7 @@ export const getUserData = createAsyncThunk(
   async (data: string, { rejectWithValue }) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/users/${data}`
+        `${import.meta.env.HOST_URL}/api/users/${data}`
       );
       const result = await response.json();
 
@@ -56,7 +56,7 @@ export const createUser = createAsyncThunk(
     try {
 
       const response = await fetch(
-        `http://localhost:8000/api/users`,
+        `${import.meta.env.HOST_URL}/api/users`,
         {
           method:"POST",
           headers:{
@@ -86,7 +86,7 @@ export const updateUser = createAsyncThunk(
     try {
 
       const response = await fetch(
-        `http://localhost:8000/api/users/${data?.id}`,
+        `${import.meta.env.HOST_URL}/api/users/${data?.id}`,
         {
           method:"PUT",
           headers:{
@@ -116,7 +116,7 @@ export const deleteUser = createAsyncThunk(
     try {
 
       const response = await fetch(
-        `http://localhost:8000/api/users/${data}`,
+        `${import.meta.env.HOST_URL}/api/users/${data}`,
         {
           method:"DELETE",
           headers:{

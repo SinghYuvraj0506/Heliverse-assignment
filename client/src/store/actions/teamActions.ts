@@ -6,7 +6,7 @@ export const getTeamData = createAsyncThunk(
   async (data: string, { rejectWithValue }) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/team/${data}`
+        `${import.meta.env.HOST_URL}/api/team/${data}`
       );
       const result = await response.json();
 
@@ -28,7 +28,7 @@ export const createTeam = createAsyncThunk(
     try {
 
       const response = await fetch(
-        `http://localhost:8000/api/team`,
+        `${import.meta.env.HOST_URL}/api/team`,
         {
           method:"POST",
           headers:{

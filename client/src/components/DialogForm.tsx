@@ -268,7 +268,7 @@ const TeamForm = () => {
 
   const handleInput = async (e) => {
     const response = await fetch(
-      "http://localhost:8000/api/users?search=" + e.target.value
+      `${import.meta.env.HOST_URL}/api/users?search=` + e.target.value
     );
     const result = await response.json();
 
